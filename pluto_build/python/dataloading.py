@@ -2,7 +2,7 @@ from cook import Importer
 import os
 import sys
 
-def ETL(geocode):
+def ETL():
     RECIPE_ENGINE = os.environ.get('RECIPE_ENGINE', '')
     BUILD_ENGINE=os.environ.get('BUILD_ENGINE', '')
 
@@ -68,6 +68,17 @@ def ETL(geocode):
     importer.import_table(schema_name='fema_pfirms2015_100yr')
     importer.import_table(schema_name='pluto_input_condolot_descriptiveattributes')
 
+    # Spatial features to Zola
+    importer.import_table(schema_name='dcp_mih')
+    importer.import_table(schema_name='transitzones')
+    importer.import_table(schema_name='inclusionary_housing')
+    importer.import_table(schema_name='waterfront_access_plan')
+    importer.import_table(schema_name='fresh_zones')
+    importer.import_table(schema_name='coastal_zone_boundary')
+    importer.import_table(schema_name='lower_density_growth_management_areas')
+    importer.import_table(schema_name='upland_waterfront_areas')
+    importer.import_table(schema_name='appendixj_designated_mdistricts')
+
 if __name__ == "__main__":
-    geocode=sys.argv[1]
-    ETL(geocode)
+    # geocode=sys.argv[1]
+    ETL()
