@@ -2,7 +2,7 @@ from cook import Importer
 import os
 import sys
 
-def ETL():
+def ETL(geocode):
     RECIPE_ENGINE = os.environ.get('RECIPE_ENGINE', '')
     BUILD_ENGINE=os.environ.get('BUILD_ENGINE', '')
 
@@ -80,5 +80,5 @@ def ETL():
     importer.import_table(schema_name='appendixj_designated_mdistricts')
 
 if __name__ == "__main__":
-    # geocode=sys.argv[1]
-    ETL()
+    geocode=sys.argv[1]
+    ETL(geocode)
