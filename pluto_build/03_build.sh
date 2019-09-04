@@ -92,3 +92,15 @@ docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/geomclean.sql
 echo '\nPopulating PLUTO tags and version fields \e[32mGreen'
 docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/plutomapid.sql
 docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/versions.sql
+
+echo '\nCreating supporting table for ZoLa  \e[32mGreen'
+docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/pluto_zola.sql
+docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/appendixj_designated_flag.sql
+docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/coastal_zone_flag.sql
+docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/fresh_zones_flag.sql
+docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/ih_flag.sql
+docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/lower_density_growth_flag.sql
+docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/mih_flag.sql
+docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/transitzones_flag.sql
+docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/upland_waterfront_flag.sql 
+docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/waterfront_access_flag.sql
