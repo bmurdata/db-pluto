@@ -105,5 +105,6 @@ docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/mih_flag.sql
 docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/transitzones_flag.sql
 docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/upland_waterfront_flag.sql 
 docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/waterfront_access_flag.sql
+docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/pluto_zola_export.sql
 END=$(date +%s);
 echo $((END-START)) | awk '{print int($1/60)" minutes and "int($1%60)" seconds elapsed."}'
