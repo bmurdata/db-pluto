@@ -69,6 +69,7 @@ def ETL(geocode):
     importer.import_table(schema_name='pluto_input_condolot_descriptiveattributes')
 
     # Spatial features to Zola
+    importer.import_table(schema_name='dcp_mappluto')
     importer.import_table(schema_name='dcp_mih')
     importer.import_table(schema_name='transitzones')
     importer.import_table(schema_name='inclusionary_housing')

@@ -1,7 +1,7 @@
 -- Create a pluto supporting table to feed Zola
 DROP TABLE IF EXISTS pluto_zola;
 SELECT bbl, geom INTO pluto_zola
-FROM pluto;
+FROM dcp_mappluto;
 
 -- Add Zola features
 ALTER TABLE pluto_zola
@@ -15,3 +15,6 @@ ALTER TABLE pluto_zola
 	ADD appendixj_designated_mdistricts_flag text,
 	ADD fresh_zones_flag text
 ;
+
+UPDATE pluto_zola
+SET geom = ST_MakeValid(geom);

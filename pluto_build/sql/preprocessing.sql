@@ -1,4 +1,4 @@
--- change all wkb_geometry to geom
+-- -- change all wkb_geometry to geom
 ALTER TABLE dcp_edesignation RENAME wkb_geometry to geom;
 ALTER TABLE dcas_facilities_colp RENAME wkb_geometry to geom;
 ALTER TABLE lpc_historic_districts RENAME wkb_geometry to geom;
@@ -31,6 +31,7 @@ ALTER TABLE dcp_zoningmapindex RENAME wkb_geometry to geom;
 ALTER TABLE fema_firms2007_100yr RENAME wkb_geometry to geom;
 ALTER TABLE fema_pfirms2015_100yr RENAME wkb_geometry to geom;
 ALTER TABLE pluto_input_condolot_descriptiveattributes RENAME wkb_geometry to geom;
+ALTER TABLE dcp_mappluto RENAME wkb_geometry to geom;
 ALTER TABLE dcp_mih RENAME wkb_geometry to geom;
 ALTER TABLE transitzones RENAME wkb_geometry to geom;
 ALTER TABLE inclusionary_housing RENAME wkb_geometry to geom;

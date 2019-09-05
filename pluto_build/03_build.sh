@@ -94,6 +94,7 @@ docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/plutomapid.sql
 docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/versions.sql
 
 echo '\nCreating supporting table for ZoLa  \e[32mGreen'
+START=$(date +%s);
 docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/pluto_zola.sql
 docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/appendixj_designated_flag.sql
 docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/coastal_zone_flag.sql
@@ -104,3 +105,5 @@ docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/mih_flag.sql
 docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/transitzones_flag.sql
 docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/upland_waterfront_flag.sql 
 docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/waterfront_access_flag.sql
+END=$(date +%s);
+echo $((END-START)) | awk '{print int($1/60)" minutes and "int($1%60)" seconds elapsed."}'
