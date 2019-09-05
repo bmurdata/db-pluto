@@ -2,6 +2,8 @@
 -- assign the transitzones to each tax lot
 -- the order transitzones districts are assigned is based on which district covers the majority of the lot
 -- a district is only assigned if more than 10% of the district covers the lot
+UPDATE transitzones
+SET geom = ST_MakeValid(geom);
 
 DROP TABLE IF EXISTS tzperorder;
 CREATE TABLE tzperorder AS (
