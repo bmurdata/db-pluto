@@ -5,9 +5,9 @@ REPOLOC="$(git rev-parse --show-toplevel)"
 cd $REPOLOC
 
 # load config
-DBNAME=$(cat $REPOLOC/pluto.config.json | jq -r '.DBNAME')
-DBUSER=$(cat $REPOLOC/pluto.config.json | jq -r '.DBUSER')
+DBNAME='postgres'
+DBUSER='postgres'
 
 start=$(date +'%T')
 echo "Starting to generate corrections for PLUTO"
-psql -U $DBUSER -d $DBNAME -f $REPOLOC/pluto_build/sql/corr_yearbuilt_lpc.sql
+docker exec pluto psql -U $DBUSER -d $DBNAME -f sql/corr_yearbuilt_lpc.sql
