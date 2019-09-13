@@ -38,6 +38,23 @@ ALTER TABLE inclusionary_housing RENAME wkb_geometry to geom;
 ALTER TABLE waterfront_access_plan RENAME wkb_geometry to geom;
 ALTER TABLE fresh_zones RENAME wkb_geometry to geom;
 ALTER TABLE coastal_zone_boundary RENAME wkb_geometry to geom;
-ALTER TABLE lower_density_growth_management_areas RENAME wkb_geometry to geom;
+ALTER TABLE ldgma RENAME wkb_geometry to geom;
 ALTER TABLE upland_waterfront_areas RENAME wkb_geometry to geom;
 ALTER TABLE appendixj_designated_mdistricts RENAME wkb_geometry to geom;
+
+UPDATE transitzones
+SET geom = ST_MakeValid(geom);
+UPDATE inclusionary_housing
+SET geom = ST_MakeValid(geom);
+UPDATE waterfront_access_plan
+SET geom = ST_MakeValid(geom);
+UPDATE fresh_zones
+SET geom = ST_MakeValid(geom);
+UPDATE coastal_zone_boundary
+SET geom = ST_MakeValid(geom);
+UPDATE ldgma
+SET geom = ST_MakeValid(geom);
+UPDATE upland_waterfront_areas
+SET geom = ST_MakeValid(geom);
+UPDATE appendixj_designated_mdistricts
+SET geom = ST_MakeValid(geom);
